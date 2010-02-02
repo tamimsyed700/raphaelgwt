@@ -3,9 +3,7 @@
 
 = Getting Started =
 
-Until we have a jar and/or src distribution, you will need to checkout the sources using svn or download the files through the web interface and include them in your GWT project.
-
-Then, to your module XML file, add:
+Download the source distribution and extract in your GWT project root.  Then, to your module XML file, add:
 
 {{{
     <inherits name='com.hydro4ge.raphaelgwt.RaphaelGWT' />
