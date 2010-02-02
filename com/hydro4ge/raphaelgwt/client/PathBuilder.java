@@ -12,7 +12,7 @@ public class PathBuilder {
   public PathBuilder() { }
 
   /**
-   * append an SVN Path command to this instance
+   * append an SVG Path command to this instance
    */
   public PathBuilder append(String cmd, double ... coords) {
     s.append(cmd).append(" ");
