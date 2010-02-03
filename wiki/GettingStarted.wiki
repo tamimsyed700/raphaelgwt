@@ -3,21 +3,25 @@
 
 = Getting Started =
 
-Download the source distribution and extract in your GWT project root.  Then, to your module XML file, add:
+Download the source distribution and extract in your project root.
+
+== Using RaphaelGWT in your project ==
+
+To your module XML file, add:
 
 {{{
     <inherits name='com.hydro4ge.raphaelgwt.RaphaelGWT' />
 }}}
 
 
-Maybe some day GWT will support a !JavascriptResource that can be sent to the client on demand via !ClientBundle.  Until then, you will have to add the following in the document head of your module HTML file:
+Add the following in the document head of your module HTML file:
 
 {{{
     <script type="text/javascript" language="javascript" src="<module>/raphael-min.js"></script>
 }}}
 
-Since the RaphaelGWT module includes both the minified and full-text versions of the Raphael Javascript sources, you can trim the "-min" for debugging purposes.
+Since the RaphaelGWT module includes both the full and minified versions of the Raphael Javascript sources, you can trim the "-min" for debugging purposes.
 
-= Viewing a Demo =
+== Viewing a Demo ==
 
-Change into the samples/<demo> directory, define the environment variable `GWTPATH`, and run `ant devmode` to see it in action.
+Change into the `samples/<demo>` directory, define the environment variable `GWTPATH=/path/to/gwt-2.0.0`, and run `ant devmode` to see it in action.
