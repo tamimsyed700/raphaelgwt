@@ -13,7 +13,7 @@ Download the source distribution and extract in your GWT project root.  Then, to
 Maybe some day GWT will support a !JavascriptResource that can be sent to the client on demand via !ClientBundle.  Until then, you will have to add the following in the document head of your module HTML file:
 
 {{{
-    <script type="text/javascript" language="javascript" src="raphael-min.js"></script>
+    <script type="text/javascript" language="javascript" src="<module>/raphael-min.js"></script>
 }}}
 
 Since the RaphaelGWT module includes both the minified and full-text versions of the Raphael Javascript sources, you can trim the "-min" for debugging purposes.
