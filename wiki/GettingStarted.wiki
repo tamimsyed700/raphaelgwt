@@ -17,3 +17,7 @@ Maybe some day GWT will support a !JavascriptResource that can be sent to the cl
 }}}
 
 Since the RaphaelGWT module includes both the minified and full-text versions of the Raphael Javascript sources, you can trim the "-min" for debugging purposes.
+
+= Viewing a Demo =
+
+Change into the samples/<demo> directory, define the environment variable `GWTPATH`, and run `ant devmode` to see it in action.
