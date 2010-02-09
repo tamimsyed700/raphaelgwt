@@ -58,6 +58,8 @@ public class MyDrawing extends Raphael {
    */
   @Override
   public void onLoad() {
+    super.onLoad();
+
     // clickable, mousewheel-able circle with 200px radius
     final Circle c = new Circle(cx, cy, 200);
 
