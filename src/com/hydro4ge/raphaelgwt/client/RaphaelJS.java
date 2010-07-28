@@ -31,37 +31,6 @@ class RaphaelJS extends JavaScriptObject {
   }-*/;
 
   /**
-   * bounding box object returned by Element.getBBox()
-   */
-  protected static class BBox extends JavaScriptObject {
-    protected BBox() {}
-    public final native double x() /*-{
-      if (this.x == undefined)
-        return -1;
-      else
-        return this.x;
-    }-*/;
-    public final native double y() /*-{
-      if (this.y == undefined)
-        return -1;
-      else
-        return this.y;
-    }-*/;
-    public final native double width() /*-{
-      if (this.width == undefined)
-        return -1;
-      else
-        return this.width;
-    }-*/;
-    public final native double height() /*-{
-      if (this.height == undefined)
-        return -1;
-      else
-        return this.height;
-    }-*/;
-  }
-
-  /**
    * color object returned by Element.getColor() and friends
    */
   protected static class Color extends JavaScriptObject {
@@ -203,31 +172,37 @@ class RaphaelJS extends JavaScriptObject {
      *
      * @param newAttrs    string Attributes of the object after animation (not all attributes can be animated)
      *  @attributes_to_animate:
-     *   1.  cx number
-     *   2.  cy number
-     *   3.  fill colour
-     *   4.  fill-opacity number
-     *   5.  font-size number
-     *   6.  height number
-     *   7.  opacity number
-     *   8.  path pathString
-     *   9.  r number
-     *   10. rotation number
-     *   11. rx number
-     *   12. ry number
-     *   13. scale CSV
-     *   14. stroke colour
-     *   15. stroke-opacity number
-     *   16. stroke-width number
-     *   17. translation CSV
-     *   18. width number
-     *   19. x number
-     *   20. y number
+     *   . clip-rect string
+     *   . cx number
+     *   . cy number
+     *   . fill colour
+     *   . fill-opacity number
+     *   . font-size number
+     *   . height number
+     *   . opacity number
+     *   . path pathString
+     *   . r number
+     *   . rotation number
+     *   . rx number
+     *   . ry number
+     *   . scale string
+     *   . stroke colour
+     *   . stroke-opacity number
+     *   . stroke-width number
+     *   . translation string
+     *   . width number
+     *   . x number
+     *   . y number
      * @param duration    The duration of the animation, given in milliseconds
      *
      */
     public final native Element animate(JavaScriptObject newAttrs, int ms) /*-{
       return this.animate(newAttrs, ms);
+    }-*/;
+    public final native Element animate(JavaScriptObject newAttrs, int ms, AnimationCallback callback) /*-{
+      return this.animate(newAttrs, ms, function() {
+        @com.hydro4ge.raphaelgwt.client.AnimationCallback::fire(Lcom/hydro4ge/raphaelgwt/client/AnimationCallback;)(callback);
+      });
     }-*/;
 
     /**
@@ -242,41 +217,87 @@ class RaphaelJS extends JavaScriptObject {
     public final native Element animate(JavaScriptObject newAttrs, int ms, String easing) /*-{
       return this.animate(newAttrs, ms, easing);
     }-*/;
+    public final native Element animate(JavaScriptObject newAttrs, int ms, String easing, AnimationCallback callback) /*-{
+      return this.animate(newAttrs, ms, easing, function() {
+        @com.hydro4ge.raphaelgwt.client.AnimationCallback::fire(Lcom/hydro4ge/raphaelgwt/client/AnimationCallback;)(callback);
+    });
+    }-*/;
+
+    public final native Element animateWith(Element element, JavaScriptObject newAttrs, int ms) /*-{
+      return this.animateWith(element, newAttrs, ms);
+    }-*/;
+    public final native Element animateWith(Element element, JavaScriptObject newAttrs, int ms, AnimationCallback callback) /*-{
+      return this.animateWith(element, newAttrs, ms, function() {
+        @com.hydro4ge.raphaelgwt.client.AnimationCallback::fire(Lcom/hydro4ge/raphaelgwt/client/AnimationCallback;)(callback);
+      });
+    }-*/;
+    public final native Element animateWith(Element element, JavaScriptObject newAttrs, int ms, String easing) /*-{
+      return this.animateWith(element, newAttrs, ms, easing);
+    }-*/;
+    public final native Element animateWith(Element element, JavaScriptObject newAttrs, int ms, String easing, AnimationCallback callback) /*-{
+      return this.animateWith(element, newAttrs, ms, easing, function() {
+        @com.hydro4ge.raphaelgwt.client.AnimationCallback::fire(Lcom/hydro4ge/raphaelgwt/client/AnimationCallback;)(callback);
+    });
+    }-*/;
+
+    public final native Element animateAlong(Element path, int ms) /*-{
+      return this.animateAlong(path, ms);
+    }-*/;
+    public final native Element animateAlong(Element path, int ms, boolean rotate) /*-{
+      return this.animateAlong(path, ms, rotate);
+    }-*/;
+    public final native Element animateAlong(Element path, int ms, boolean rotate, AnimationCallback callback) /*-{
+      return this.animateAlong(path, ms, rotate, function() {
+        @com.hydro4ge.raphaelgwt.client.AnimationCallback::fire(Lcom/hydro4ge/raphaelgwt/client/AnimationCallback;)(callback);
+      });
+    }-*/;
+
+    public final native Element animateAlongBack(Element path, int ms) /*-{
+      return this.animateAlongBack(path, ms);
+    }-*/;
+    public final native Element animateAlongBack(Element path, int ms, boolean rotate) /*-{
+      return this.animateAlongBack(path, ms, rotate);
+    }-*/;
+    public final native Element animateAlongBack(Element path, int ms, boolean rotate, AnimationCallback callback) /*-{
+      return this.animateAlongBack(path, ms, rotate, function() {
+        @com.hydro4ge.raphaelgwt.client.AnimationCallback::fire(Lcom/hydro4ge/raphaelgwt/client/AnimationCallback;)(callback);
+      });
+    }-*/;
 
     /**
      * Sets the attributes of elements directly.
      *
      * @param attributeName    string of the attribute name
      *  @attribute_names:
-     *   1.  cx number
-     *   2.  cy number
-     *   3.  fill colour
-     *   4.  fill-opacity number
-     *   5.  font string
-     *   6.  font-family string
-     *   7.  font-size number
-     *   8.  font-weight string
-     *   9.  gradient object|string
-     *   10. height number
-     *   11. opacity number
-     *   12. path pathString
-     *   13. r number
-     *   14. rotation number
-     *   15. rx number
-     *   16. ry number
-     *   17. scale CSV
-     *   18. src string (URL)
-     *   19. stroke colour
-     *   20. stroke-dasharray string
-     *   21. stroke-linecap string
-     *   22. stroke-linejoin string
-     *   23. stroke-miterlimit number
-     *   24. stroke-opacity number
-     *   25. stroke-width number
-     *   26. translation CSV
-     *   27. width number
-     *   28. x number
-     *   29. y number
+     *   . clip-rect string comma or space separated values: x, y, width and height
+     *   . cx number
+     *   . cy number
+     *   . fill colour or gradient
+     *   . fill-opacity number
+     *   . font string
+     *   . font-family string
+     *   . font-size number
+     *   . font-weight string
+     *   . height number
+     *   . opacity number
+     *   . path pathString
+     *   . r number
+     *   . rotation number
+     *   . rx number
+     *   . ry number
+     *   . scale comma or space separated values: xtimes, ytimes, cx, cy.
+     *   . src string (URL)
+     *   . stroke colour
+     *   . stroke-dasharray string [“”, “-”, “.”, “-.”, “-..”, “. ”, “- ”, “--”, “- .”, “--.”, “--..”]
+     *   . stroke-linecap string [“butt”, “square”, “round”]
+     *   . stroke-linejoin string [“bevel”, “round”, “miter”]
+     *   . stroke-miterlimit number
+     *   . stroke-opacity number
+     *   . stroke-width number
+     *   . translation string comma or space separated values: x and y
+     *   . width number
+     *   . x number
+     *   . y number
      * @param value    string of the new value    
      *
      * @return the javascript object having attributes modified
@@ -357,6 +378,15 @@ class RaphaelJS extends JavaScriptObject {
    */
   protected static class Path extends Element {
     protected Path() {}
+    public final native int getTotalLength() /*-{
+      return this.getTotalLength();
+    }-*/;
+    public final native Point getPointAtLength(int length) /*-{
+      return this.getPointAtLength(length);
+    }-*/;
+    public final native String getSubpath(int from, int to) /*-{
+      return this.getSubpath(from, to);
+    }-*/;
   }
 
   protected static class Set extends Element {
@@ -385,6 +415,13 @@ class RaphaelJS extends JavaScriptObject {
    */
   public final native Element circle(double x, double y, double r) /*-{
     return this.circle(x,y,r);
+  }-*/;
+
+  /**
+   * Clears the canvas, i.e. removes all the elements
+   */
+  public final native void clear() /*-{
+    return this.clear();
   }-*/;
 
   /**
@@ -528,8 +565,8 @@ class RaphaelJS extends JavaScriptObject {
     return this.setSize(width, height);
   }-*/;
 
-  public final native Element text(double x, double y, String str) /*-{
-    return this.text(x, y, str);
+  public final native Element text(double x, double y, String text) /*-{
+    return this.text(x, y, text);
   }-*/;
 
 }
