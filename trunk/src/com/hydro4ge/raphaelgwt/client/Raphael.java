@@ -23,6 +23,10 @@ public class Raphael extends Widget {
     return RaphaelJS.isDefined();
   }
 
+  public void clear() {
+    overlay.clear();
+  }
+
   /**
    * detach our children explicitly here since they were
    * attached via JavaScript outside of GWT framework
@@ -49,8 +53,16 @@ public class Raphael extends Widget {
       set.animate(newAttrs.getJavaScriptObject(), duration);
       return this;
     }
-    public Set animate(JSONObject newAttrs, int duration, String callback) {
+    public Set animate(JSONObject newAttrs, int duration, AnimationCallback callback) {
       set.animate(newAttrs.getJavaScriptObject(), duration, callback);
+      return this;
+    }
+    public Set animate(JSONObject newAttrs, int duration, String easing) {
+      set.animate(newAttrs.getJavaScriptObject(), duration, easing);
+      return this;
+    }
+    public Set animate(JSONObject newAttrs, int duration, String easing, AnimationCallback callback) {
+      set.animate(newAttrs.getJavaScriptObject(), duration, easing, callback);
       return this;
     }
     public Set attr(String attributeName, String value) {
@@ -74,7 +86,7 @@ public class Raphael extends Widget {
     public JSONObject attr(JSONArray attributeNames) {
       return new JSONObject(set.attr(attributeNames.getJavaScriptObject()));
     }
-    public RaphaelJS.BBox getBBox() {
+    public BBox getBBox() {
       return set.getBBox();
     }
     public void remove() {
@@ -143,8 +155,59 @@ public class Raphael extends Widget {
       el.animate(newAttrs.getJavaScriptObject(), duration);
       return this;
     }
-    public Shape animate(JSONObject newAttrs, int duration, String callback) {
+    public Shape animate(JSONObject newAttrs, int duration, AnimationCallback callback) {
       el.animate(newAttrs.getJavaScriptObject(), duration, callback);
+      return this;
+    }
+    public Shape animate(JSONObject newAttrs, int duration, String easing) {
+      el.animate(newAttrs.getJavaScriptObject(), duration, easing);
+      return this;
+    }
+    public Shape animate(JSONObject newAttrs, int duration, String easing, AnimationCallback callback) {
+      el.animate(newAttrs.getJavaScriptObject(), duration, easing, callback);
+      return this;
+    }
+
+    public Shape animateWith(Shape shape, JSONObject newAttrs, int duration) {
+      el.animateWith(shape.el, newAttrs.getJavaScriptObject(), duration);
+      return this;
+    }
+    public Shape animateWith(Shape shape, JSONObject newAttrs, int duration, AnimationCallback callback) {
+      el.animateWith(shape.el, newAttrs.getJavaScriptObject(), duration, callback);
+      return this;
+    }
+    public Shape animateWith(Shape shape, JSONObject newAttrs, int duration, String easing) {
+      el.animateWith(shape.el, newAttrs.getJavaScriptObject(), duration, easing);
+      return this;
+    }
+    public Shape animateWith(Shape shape, JSONObject newAttrs, int duration, String easing, AnimationCallback callback) {
+      el.animateWith(shape.el, newAttrs.getJavaScriptObject(), duration, easing, callback);
+      return this;
+    }
+
+    public Shape animateAlong(Path path, int duration) {
+      el.animateAlong(path.el, duration);
+      return this;
+    }
+    public Shape animateAlong(Path path, int duration, boolean rotate) {
+      el.animateAlong(path.el, duration, rotate);
+      return this;
+    }
+    public Shape animateAlong(Path path, int duration, boolean rotate, AnimationCallback callback) {
+      el.animateAlong(path.el, duration, rotate, callback);
+      return this;
+    }
+
+    public Shape animateAlongBack(Path path, int duration) {
+      el.animateAlongBack(path.el, duration);
+      return this;
+    }
+    public Shape animateAlongBack(Path path, int duration, boolean rotate) {
+      el.animateAlongBack(path.el, duration, rotate);
+      return this;
+    }
+    public Shape animateAlongBack(Path path, int duration, boolean rotate, AnimationCallback callback) {
+      el.animateAlongBack(path.el, duration, rotate, callback);
       return this;
     }
 
@@ -170,8 +233,12 @@ public class Raphael extends Widget {
       return new JSONObject(el.attr(attributeNames.getJavaScriptObject()));
     }
 
-    public RaphaelJS.BBox getBBox() {
+    public BBox getBBox() {
       return el.getBBox();
+    }
+
+    public void hide() {
+      el.hide();
     }
 
     public void remove() {
@@ -214,6 +281,10 @@ public class Raphael extends Widget {
       return this;
     }
 
+    public void show() {
+      el.show();
+    }
+
     public Shape toFront() {
       el.toFront();
       return this;
@@ -238,8 +309,8 @@ public class Raphael extends Widget {
   }
 
   public class Text extends Shape {
-    public Text(double x, double y, String str) {
-      super(overlay.text(x, y, str));
+    public Text(double x, double y, String text) {
+      super(overlay.text(x, y, text));
     }
   }
 
@@ -253,14 +324,14 @@ public class Raphael extends Widget {
   }
 
   public class Ellipse extends Shape {
-    public Ellipse(double x, double y, double hr, double vr) {
-      super(overlay.ellipse(x, y, hr, vr));
+    public Ellipse(double x, double y, double rx, double ry) {
+      super(overlay.ellipse(x, y, rx, ry));
     }
   }
 
   public class Image extends Shape {
-    public Image(String src, double x, double y, double w, double h) {
-      super(overlay.image(src, x, y, w, h));
+    public Image(String src, double x, double y, double width, double height) {
+      super(overlay.image(src, x, y, width, height));
     }
   }
 
@@ -276,6 +347,22 @@ public class Raphael extends Widget {
     public Path(PathBuilder builder) {
       this(builder.toString());
     }
+
+    public int getTotalLength() {
+      return ((RaphaelJS.Path)el).getTotalLength();
+    }
+
+    public Point getPointAtLength(int length) {
+      return ((RaphaelJS.Path)el).getPointAtLength(length);
+    }
+
+    /**
+     * doesn't seem to work
+     *
+    public String getSubpath(int from, int to) {
+      return ((RaphaelJS.Path)el).getSubpath(from, to);
+    }
+     */
   }
 
 }
