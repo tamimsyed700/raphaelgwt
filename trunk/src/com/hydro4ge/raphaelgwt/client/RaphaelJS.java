@@ -220,7 +220,7 @@ class RaphaelJS extends JavaScriptObject {
     public final native Element animate(JavaScriptObject newAttrs, int ms, String easing, AnimationCallback callback) /*-{
       return this.animate(newAttrs, ms, easing, function() {
         @com.hydro4ge.raphaelgwt.client.AnimationCallback::fire(Lcom/hydro4ge/raphaelgwt/client/AnimationCallback;)(callback);
-    });
+      });
     }-*/;
 
     public final native Element animateWith(Element element, JavaScriptObject newAttrs, int ms) /*-{
@@ -237,7 +237,7 @@ class RaphaelJS extends JavaScriptObject {
     public final native Element animateWith(Element element, JavaScriptObject newAttrs, int ms, String easing, AnimationCallback callback) /*-{
       return this.animateWith(element, newAttrs, ms, easing, function() {
         @com.hydro4ge.raphaelgwt.client.AnimationCallback::fire(Lcom/hydro4ge/raphaelgwt/client/AnimationCallback;)(callback);
-    });
+      });
     }-*/;
 
     public final native Element animateAlong(Element path, int ms) /*-{
