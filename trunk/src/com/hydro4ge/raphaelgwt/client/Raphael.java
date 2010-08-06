@@ -28,9 +28,15 @@ public class Raphael extends Widget {
   }
 
   /**
-   * detach our children explicitly here since they were
-   * attached via JavaScript outside of GWT framework
+   * attach/detach our children explicitly here since they were
+   * initially attached via JavaScript outside of GWT framework
    */
+  @Override
+  protected void doAttachChildren() {
+    super.doAttachChildren();
+    for (Shape s : shapes)
+      s.doAttach();
+  }
   @Override
   protected void doDetachChildren() {
     super.doDetachChildren();
@@ -143,10 +149,13 @@ public class Raphael extends Widget {
     }
 
     /**
-     * this is ugly, but necessary for the parent Raphael
-     * widget to detach this widget from the DOM, because
-     * the onDetach() method is protected.
+     * this is ugly, but necessary for the parent Raphael widget
+	 * to attach/detach this widget from the DOM, because the
+	 * onAttach()/onDetach() methods are protected.
      */
+    public void doAttach() {
+      onAttach();
+    }
     public void doDetach() {
       onDetach();
     }
