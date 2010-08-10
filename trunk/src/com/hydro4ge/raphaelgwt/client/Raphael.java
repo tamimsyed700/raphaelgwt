@@ -11,6 +11,7 @@ public class Raphael extends Widget {
 
   private RaphaelJS overlay;
   private final ArrayList<Shape> shapes = new ArrayList<Shape>();
+  private boolean attached = true;
 
   public Raphael(int width, int height) {
     super();
@@ -34,14 +35,22 @@ public class Raphael extends Widget {
   @Override
   protected void doAttachChildren() {
     super.doAttachChildren();
-    for (Shape s : shapes)
-      s.doAttach();
+    if (!this.attached) {
+      for (Shape s : shapes) {
+        s.doAttach();
+      }
+      this.attached = true;
+    }
   }
   @Override
   protected void doDetachChildren() {
     super.doDetachChildren();
-    for (Shape s : shapes)
-      s.doDetach();
+    if (this.attached) {
+      for (Shape s : shapes) {
+        s.doDetach();
+      }
+      this.attached = false;
+    }
   }
 
   public class Set {
@@ -150,8 +159,8 @@ public class Raphael extends Widget {
 
     /**
      * this is ugly, but necessary for the parent Raphael widget
-	 * to attach/detach this widget from the DOM, because the
-	 * onAttach()/onDetach() methods are protected.
+     * to attach/detach this widget from the DOM, because the
+     * onAttach()/onDetach() methods are protected.
      */
     public void doAttach() {
       onAttach();
