@@ -28,6 +28,10 @@ public class Raphael extends Widget {
     overlay.clear();
   }
 
+  public void setSize(int width, int height) {
+    overlay.setSize(width, height);
+  }
+
   /**
    * attach/detach our children explicitly here since they were
    * initially attached via JavaScript outside of GWT framework
