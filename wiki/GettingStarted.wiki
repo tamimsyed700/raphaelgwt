@@ -3,7 +3,7 @@
 
 = Getting Started =
 
-Download the source distribution and extract in your project root.
+Download the source distribution and extract in your project root, or download the jar and include it in your java classpath and/or Eclipse build path.
 
 == Using RaphaelGWT in your project ==
 
@@ -24,4 +24,4 @@ Since the RaphaelGWT module includes both the full and minified versions of the 
 
 == Viewing a Demo ==
 
-Change into the `samples/<demo>` directory, define the environment variable `GWTPATH=/path/to/gwt-2.0.0`, and run `ant devmode` to see it in action.
+Change into the `samples/<demo>` directory, define the environment variable `GWTPATH=/path/to/gwt-2.x`, and run `ant devmode` to see it in action.
