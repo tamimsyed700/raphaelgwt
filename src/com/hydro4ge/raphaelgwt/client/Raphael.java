@@ -370,11 +370,11 @@ public class Raphael extends Widget {
       this(builder.toString());
     }
 
-    public int getTotalLength() {
+    public double getTotalLength() {
       return ((RaphaelJS.Path)el).getTotalLength();
     }
 
-    public Point getPointAtLength(int length) {
+    public Point getPointAtLength(double length) {
       return ((RaphaelJS.Path)el).getPointAtLength(length);
     }
 
