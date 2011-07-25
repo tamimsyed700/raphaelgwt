@@ -378,10 +378,10 @@ class RaphaelJS extends JavaScriptObject {
    */
   protected static class Path extends Element {
     protected Path() {}
-    public final native int getTotalLength() /*-{
+    public final native double getTotalLength() /*-{
       return this.getTotalLength();
     }-*/;
-    public final native Point getPointAtLength(int length) /*-{
+    public final native Point getPointAtLength(double length) /*-{
       return this.getPointAtLength(length);
     }-*/;
     public final native String getSubpath(int from, int to) /*-{
