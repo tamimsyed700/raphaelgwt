@@ -223,7 +223,7 @@ public class Attr
   }
 
   public Attr textAnchor(TextAnchor anchor) {
-    this.put("text-Anchor", new JSONString(anchor.name()));
+    this.put("text-anchor", new JSONString(anchor.name()));
     return this;
   }
 
