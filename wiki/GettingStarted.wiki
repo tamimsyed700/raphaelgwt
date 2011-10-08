@@ -27,3 +27,6 @@ Since the RaphaelGWT module includes both the full and minified versions of the 
 Change into the `samples/<demo>` directory, define the environment variable `GWTPATH=/path/to/gwt-2.x`, and run `ant devmode` to see it in action.
 
 *OR*, [https://www.getpario.com/trial/signup/ sign up for a Pario trial] to see RaphaelGWT used in a real commercial application.
+
+== Getting Help ==
+Do you have a question about RaphaelGWT?  Please post it in the [http://groups.google.com/group/raphaelgwt discussion group].
