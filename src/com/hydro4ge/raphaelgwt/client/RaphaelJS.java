@@ -384,7 +384,7 @@ class RaphaelJS extends JavaScriptObject {
     public final native Point getPointAtLength(double length) /*-{
       return this.getPointAtLength(length);
     }-*/;
-    public final native String getSubpath(int from, int to) /*-{
+    public final native String getSubpath(double from, double to) /*-{
       return this.getSubpath(from, to);
     }-*/;
   }

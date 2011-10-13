@@ -378,13 +378,9 @@ public class Raphael extends Widget {
       return ((RaphaelJS.Path)el).getPointAtLength(length);
     }
 
-    /**
-     * doesn't seem to work
-     *
-    public String getSubpath(int from, int to) {
+    public String getSubpath(double from, double to) {
       return ((RaphaelJS.Path)el).getSubpath(from, to);
     }
-     */
   }
 
 }
