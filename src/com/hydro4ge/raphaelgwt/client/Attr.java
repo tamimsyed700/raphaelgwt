@@ -222,6 +222,11 @@ public class Attr
     return this;
   }
 
+  public Attr text(String text) {
+    this.put("text", new JSONString(text));
+    return this;
+  }
+
   public Attr textAnchor(TextAnchor anchor) {
     this.put("text-anchor", new JSONString(anchor.name()));
     return this;
