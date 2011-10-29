@@ -345,6 +345,23 @@ class RaphaelJS extends JavaScriptObject {
       return this.attr(attributeNames);
     }-*/;
 
+    /**
+     * builtin Raphael drag and drop
+     * @authors cristian.n.miranda, geoffspeicher
+     */
+    public final native void drag(DragCallback callback) /*-{
+      var start = function (x, y) {
+        callback.@com.hydro4ge.raphaelgwt.client.DragCallback::onStart(DD)(x,y);
+      },
+      move = function (dx, dy, x, y) {
+        callback.@com.hydro4ge.raphaelgwt.client.DragCallback::onMove(DDDD)(dx,dy,x,y);
+      },
+      up = function () {
+        callback.@com.hydro4ge.raphaelgwt.client.DragCallback::onEnd()();
+      };
+      this.drag(move, start, up);
+    }-*/;
+
     public final native BBox getBBox() /*-{
       return this.getBBox();
     }-*/;
