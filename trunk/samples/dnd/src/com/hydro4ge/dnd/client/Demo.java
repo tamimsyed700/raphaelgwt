@@ -12,21 +12,21 @@ public class Demo implements EntryPoint {
   // simply replacing Image with DraggableCircle, defined in this package
 
   public void onModuleLoad() {
-	// ensure the document BODY has dimensions in standards mode
-	RootPanel.get().setPixelSize(600, 600);
+    // ensure the document BODY has dimensions in standards mode
+    RootPanel.get().setPixelSize(600, 600);
 
-	// workaround for GWT issue 1813
-	// http://code.google.com/p/google-web-toolkit/issues/detail?id=1813
-	RootPanel.get().getElement().getStyle().setProperty("position" , "relative");
+    // workaround for GWT issue 1813
+    // http://code.google.com/p/google-web-toolkit/issues/detail?id=1813
+    RootPanel.get().getElement().getStyle().setProperty("position" , "relative");
 
-	// create a DragController to manage drag-n-drop actions
-	// note: This creates an implicit DropController for the boundary panel
-	PickupDragController dragController = new PickupDragController(RootPanel.get(), true);
+    // create a DragController to manage drag-n-drop actions
+    // note: This creates an implicit DropController for the boundary panel
+    PickupDragController dragController = new PickupDragController(RootPanel.get(), true);
 
-	// add a new circle to the boundary panel and make it draggable
+    // add a new circle to the boundary panel and make it draggable
     DraggableCircle d = new DraggableCircle(30);
-	RootPanel.get().add(d, 40, 30);
-	dragController.makeDraggable(d);
+    RootPanel.get().add(d, 40, 30);
+    dragController.makeDraggable(d);
   }
  
 }

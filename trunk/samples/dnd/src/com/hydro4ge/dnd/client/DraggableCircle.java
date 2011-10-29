@@ -16,37 +16,37 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.hydro4ge.raphaelgwt.client.*;
 
 class DraggableCircle extends Raphael
-	implements HasMouseDownHandlers, HasMouseUpHandlers, HasMouseMoveHandlers, HasMouseOutHandlers
+    implements HasMouseDownHandlers, HasMouseUpHandlers, HasMouseMoveHandlers, HasMouseOutHandlers
 {
   static final private int PADDING = 5;
   private int radius;
 
   public DraggableCircle(int radius) {
-	super((radius+PADDING)*2, (radius+PADDING)*2);
-	this.radius = radius;
+    super((radius+PADDING)*2, (radius+PADDING)*2);
+    this.radius = radius;
   }
 
   @Override
   public void onLoad() {
-	super.onLoad();
-	Circle c = new Circle(this.radius+PADDING, this.radius+PADDING, this.radius);
-	c.attr("fill", "#666");
+    super.onLoad();
+    Circle c = new Circle(this.radius+PADDING, this.radius+PADDING, this.radius);
+    c.attr("fill", "#666");
   }
 
   public HandlerRegistration addMouseDownHandler(MouseDownHandler handler) {
-	return this.addDomHandler(handler, MouseDownEvent.getType());
+    return this.addDomHandler(handler, MouseDownEvent.getType());
   }
 
   public HandlerRegistration addMouseUpHandler(MouseUpHandler handler) {
-	return this.addDomHandler(handler, MouseUpEvent.getType());
+    return this.addDomHandler(handler, MouseUpEvent.getType());
   }
 
   public HandlerRegistration addMouseMoveHandler(MouseMoveHandler handler) {
-	return this.addDomHandler(handler, MouseMoveEvent.getType());
+    return this.addDomHandler(handler, MouseMoveEvent.getType());
   }
 
   public HandlerRegistration addMouseOutHandler(MouseOutHandler handler) {
-	return this.addDomHandler(handler, MouseOutEvent.getType());
+    return this.addDomHandler(handler, MouseOutEvent.getType());
   }
 }
 
