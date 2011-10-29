@@ -255,6 +255,10 @@ public class Raphael extends Widget {
       return new JSONObject(el.attr(attributeNames.getJavaScriptObject()));
     }
 
+    public void drag(DragCallback callback) {
+      el.drag(callback);
+    }
+
     public BBox getBBox() {
       return el.getBBox();
     }
