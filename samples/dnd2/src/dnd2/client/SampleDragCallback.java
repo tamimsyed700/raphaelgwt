@@ -49,7 +49,6 @@ class SampleDragCallback implements DragCallback {
   public void onEnd() {
     shape.animate(new Attr().rotation(-rotation).fill(origFill).opacity(1), 400, "bounce");
     shape.attr(new Attr().cursor(Cursor.POINTER));
-	shape.undrag();
   }
 
 }
