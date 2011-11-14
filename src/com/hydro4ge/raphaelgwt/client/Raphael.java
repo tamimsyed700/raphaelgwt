@@ -42,6 +42,7 @@ public class Raphael extends Widget {
 
   public void clear() {
     overlay.clear();
+    shapes.clear();
   }
 
   public void setSize(int width, int height) {
