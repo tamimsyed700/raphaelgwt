@@ -3,5 +3,13 @@
 <module>
   <set-configuration-property name='xsiframe.failIfScriptTag' value='FALSE'/>
   <inherits name='com.google.gwt.json.JSON'/>
-  <script src='raphael-min.js' />
+  <define-property name="raphaelgwt.mode" values="production,debug" />
+  <set-property name="raphaelgwt.mode" value="production" />
+
+  <replace-with class="com.hydro4ge.raphaelgwt.client.Injector.DebugJsPicker">
+  <when-type-is class="com.hydro4ge.raphaelgwt.client.Injector.JsPicker" />
+    <any>
+      <when-property-is name="raphaelgwt.mode" value="debug" />
+    </any>
+  </replace-with>
 </module>

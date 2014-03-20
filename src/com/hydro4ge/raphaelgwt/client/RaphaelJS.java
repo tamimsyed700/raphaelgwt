@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Hydro4GE, Incorporated. http://www.hydro4ge.com/
+ * Copyright 2010-2014 Hydro4GE, Incorporated. http://www.hydro4ge.com/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ class RaphaelJS extends JavaScriptObject {
    * NB: do not call any other methods if Raphael is not defined
    */
   static public final native boolean isDefined() /*-{
+	@com.hydro4ge.raphaelgwt.client.Injector::ensureInjected()();
     return $wnd.Raphael!=undefined;
   }-*/;
 
@@ -36,14 +37,16 @@ class RaphaelJS extends JavaScriptObject {
    * Raphael factory method
    */
   static public final native RaphaelJS create(String elementId, int width, int height) /*-{
-      return $wnd.Raphael(elementId, width, height);
+	@com.hydro4ge.raphaelgwt.client.Injector::ensureInjected()();
+	return $wnd.Raphael(elementId, width, height);
   }-*/;
 
   /**
    * Raphael factory method
    */
   static public final native RaphaelJS create(com.google.gwt.user.client.Element element, int width, int height) /*-{
-      return $wnd.Raphael(element, width, height);
+	@com.hydro4ge.raphaelgwt.client.Injector::ensureInjected()();
+	return $wnd.Raphael(element, width, height);
   }-*/;
 
   /**

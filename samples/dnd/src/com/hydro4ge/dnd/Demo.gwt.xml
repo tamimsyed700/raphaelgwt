@@ -20,4 +20,6 @@
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
 
+  <!-- enable next line to use un-minified raphael.js sources     -->
+  <!-- <set-property name="raphaelgwt.mode" value="debug" />      -->
 </module>
