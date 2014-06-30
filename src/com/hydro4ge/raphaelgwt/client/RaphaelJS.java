@@ -44,7 +44,7 @@ class RaphaelJS extends JavaScriptObject {
   /**
    * Raphael factory method
    */
-  static public final native RaphaelJS create(com.google.gwt.user.client.Element element, int width, int height) /*-{
+  static public final native RaphaelJS create(com.google.gwt.dom.client.Element element, int width, int height) /*-{
 	@com.hydro4ge.raphaelgwt.client.Injector::ensureInjected()();
 	return $wnd.Raphael(element, width, height);
   }-*/;
@@ -73,7 +73,7 @@ class RaphaelJS extends JavaScriptObject {
      *
      * @return reference to the current DOM object
      */
-    public final native com.google.gwt.user.client.Element node() /*-{
+    public final native com.google.gwt.dom.client.Element node() /*-{
       return this.node;
     }-*/;
 
